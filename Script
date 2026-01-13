@@ -27,9 +27,9 @@ end)
 -- UI Init
 local WindUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/Footagesus/WindUI/main/dist/main.lua"))()
 local Window = WindUI:CreateWindow({
-  Title = "ErrorServerHub",
+  Title = "RUNEX project",
   Icon = "monitor",
-  Author = "By ErrorServer",
+  Author = "By RUNEX",
   Folder = "TsunamiBrainrots",
   Size = UDim2.fromOffset(560, 430),
   Theme = "Crimson",
@@ -91,7 +91,7 @@ FarmTab:Section({ Title = "Movement" })
 
 local flying = false
 local noclip = false
-local flySpeed = 2 -- Базовая скорость для CFrame полета
+local flySpeed = 5 -- Базовая скорость для CFrame полета
 
 -- Noclip Logic
 RunService.Stepped:Connect(function()
