@@ -38,7 +38,7 @@ local Window = Rayfield:CreateWindow({
    }
 })
 
-local Tab = Window:CreateTab("Roblox Egor Tab", "tablet-smartphone")
+local Tab = Window:CreateTab("Event functions", "tablet-smartphone")
 
 local Button = Tab:CreateButton({
    Name = "Farm Coins",
