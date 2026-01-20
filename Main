@@ -1,4 +1,11 @@
 -- t.me/RUNEX_X_SCRIPT
+game.StarterGui:SetCore("SendNotification", {
+    Title = "☢️Coin Farn☢️\nRUNEX X SCRIPT";
+    Text = "\nЛутший фарм коинов в игре";
+    Duration = 8;
+})
+setclipboard("t.me/RUNEX_X_SCRIPT")
+
 -- Services
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
