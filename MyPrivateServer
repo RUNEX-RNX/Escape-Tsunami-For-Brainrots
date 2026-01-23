@@ -1,0 +1,172 @@
+-- LINK
+local link = "https://www.roblox.com/share?code=b35da214fe70a14aa6493ff3c25c0e11&type=Server"
+
+-- SERVICES
+local UIS = game:GetService("UserInputService")
+local TweenService = game:GetService("TweenService")
+
+-- DEVICE CHECK
+local isMobile = UIS.TouchEnabled and not UIS.KeyboardEnabled
+
+-- GUI
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.IgnoreGuiInset = true
+ScreenGui.Parent = game.CoreGui
+
+-- FRAME
+local Frame = Instance.new("Frame", ScreenGui)
+Frame.Size = isMobile and UDim2.new(0.92,0,0.65,0) or UDim2.new(0,520,0,360)
+Frame.Position = UDim2.new(0.5,0,0.5,0)
+Frame.AnchorPoint = Vector2.new(0.5,0.5)
+Frame.BackgroundColor3 = Color3.fromRGB(20,20,20)
+Frame.BorderSizePixel = 0
+Instance.new("UICorner", Frame).CornerRadius = UDim.new(0,14)
+
+-- TOP BAR
+local TopBar = Instance.new("Frame", Frame)
+TopBar.Size = UDim2.new(1,0,0,48)
+TopBar.BackgroundColor3 = Color3.fromRGB(30,30,30)
+TopBar.BorderSizePixel = 0
+Instance.new("UICorner", TopBar).CornerRadius = UDim.new(0,14)
+
+-- LOCK ICON
+local LockIcon = Instance.new("TextLabel", TopBar)
+LockIcon.Size = UDim2.new(0,24,0,24)
+LockIcon.Position = UDim2.new(0,12,0.5,-12)
+LockIcon.Text = "🔒"
+LockIcon.BackgroundTransparency = 1
+LockIcon.TextScaled = true
+LockIcon.TextTransparency = 1
+
+-- TITLE
+local Title = Instance.new("TextLabel", TopBar)
+Title.Position = UDim2.new(0,48,0,0)
+Title.Size = UDim2.new(1,-90,1,0)
+Title.Text = "USE CODED SERVER FOR THIS SCRIPT"
+Title.Font = Enum.Font.GothamBold
+Title.TextXAlignment = Enum.TextXAlignment.Left
+Title.TextColor3 = Color3.fromRGB(255,255,255)
+Title.BackgroundTransparency = 1
+Title.TextTransparency = 1
+Title.TextSize = isMobile and 18 or 20
+
+-- CLOSE
+local Close = Instance.new("TextButton", TopBar)
+Close.Size = UDim2.new(0,36,0,36)
+Close.Position = UDim2.new(1,-42,0.5,-18)
+Close.Text = "X"
+Close.Font = Enum.Font.GothamBold
+Close.TextScaled = true
+Close.TextColor3 = Color3.fromRGB(255,255,255)
+Close.BackgroundColor3 = Color3.fromRGB(180,60,60)
+Close.BorderSizePixel = 0
+Close.TextTransparency = 1
+Instance.new("UICorner", Close).CornerRadius = UDim.new(0,8)
+
+-- SUBTEXT
+local SubText = Instance.new("TextLabel", Frame)
+SubText.Position = UDim2.new(0,20,0,65)
+SubText.Size = UDim2.new(1,-40,0,40)
+SubText.Text = "To get the coded server read below"
+SubText.Font = Enum.Font.Gotham
+SubText.TextWrapped = true
+SubText.TextColor3 = Color3.fromRGB(180,180,180)
+SubText.BackgroundTransparency = 1
+SubText.TextTransparency = 1
+SubText.TextSize = isMobile and 14 or 15
+
+-- SCROLLING AREA (MOBILE FIX)
+local StepHolder = Instance.new("ScrollingFrame", Frame)
+StepHolder.Position = UDim2.new(0,20,0,110)
+StepHolder.Size = isMobile and UDim2.new(1,-40,0,140) or UDim2.new(1,-40,0,160)
+StepHolder.CanvasSize = UDim2.new(0,0,0,isMobile and 220 or 160)
+StepHolder.ScrollBarImageTransparency = 0.6
+StepHolder.BackgroundTransparency = 1
+StepHolder.BorderSizePixel = 0
+StepHolder.AutomaticCanvasSize = Enum.AutomaticSize.None
+
+-- STEPS TEXT
+local Steps = Instance.new("TextLabel", StepHolder)
+Steps.Size = UDim2.new(1,0,0,220)
+Steps.Text =
+	"1. Click Get Coded Server\n\n" ..
+	"2. Put Coded Server into Chrome\n\n" ..
+	"3. Click play\n\n" ..
+	"4. Enjoy the script"
+Steps.Font = Enum.Font.Gotham
+Steps.TextWrapped = true
+Steps.TextYAlignment = Enum.TextYAlignment.Top
+Steps.TextColor3 = Color3.fromRGB(200,200,200)
+Steps.BackgroundTransparency = 1
+Steps.TextTransparency = 1
+Steps.TextSize = isMobile and 14 or 15
+
+-- BUTTON
+local Button = Instance.new("TextButton", Frame)
+Button.Size = isMobile and UDim2.new(0.85,0,0,50) or UDim2.new(0,240,0,48)
+Button.Position = isMobile
+	and UDim2.new(0.5,0,1,-15)
+	or UDim2.new(0.5,0,1,-25)
+Button.AnchorPoint = Vector2.new(0.5,1)
+Button.Text = "Get Coded Server"
+Button.Font = Enum.Font.GothamBold
+Button.TextScaled = true
+Button.TextColor3 = Color3.fromRGB(255,255,255)
+Button.BackgroundColor3 = Color3.fromRGB(70,170,60)
+Button.BorderSizePixel = 0
+Button.TextTransparency = 1
+Instance.new("UICorner", Button).CornerRadius = UDim.new(0,10)
+
+-- FADE
+local function fade(obj)
+	TweenService:Create(obj, TweenInfo.new(0.8, Enum.EasingStyle.Quad), {
+		TextTransparency = 0
+	}):Play()
+end
+
+fade(LockIcon)
+fade(Title)
+fade(Close)
+fade(SubText)
+fade(Steps)
+fade(Button)
+
+-- COPY
+Button.MouseButton1Click:Connect(function()
+	setclipboard(link)
+	Button.Text = "Link Copied"
+	Button.BackgroundColor3 = Color3.fromRGB(60,150,60)
+
+	game.StarterGui:SetCore("SendNotification", {
+		Title = "Copied!",
+		Text = "Private server link copied",
+		Duration = 3
+	})
+end)
+
+-- CLOSE
+Close.MouseButton1Click:Connect(function()
+	ScreenGui:Destroy()
+end)
+
+-- DRAG
+local dragging, dragStart, startPos
+TopBar.InputBegan:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseButton1
+	or input.UserInputType == Enum.UserInputType.Touch then
+		dragging = true
+		dragStart = input.Position
+		startPos = Frame.Position
+	end
+end)
+
+UIS.InputChanged:Connect(function(input)
+	if dragging then
+		local delta = input.Position - dragStart
+		Frame.Position = startPos + UDim2.new(0, delta.X, 0, delta.Y)
+	end
+end)
+
+UIS.InputEnded:Connect(function()
+	dragging = false
+end)
