@@ -1,1 +1,138 @@
 
+local Rayfield = loadstring(game:HttpGet("https://sirius.menu/rayfield"))()
+
+local Players = game:GetService("Players")
+local StarterGui = game:GetService("StarterGui")
+local player = Players.LocalPlayer
+
+local Window = Rayfield:CreateWindow({
+	Name = "1738 Hub",
+	LoadingTitle = "Loading...",
+	LoadingSubtitle = "made by yt-@Opgamer73431",
+	ToggleUIKeybind = "K",
+	ConfigurationSaving = {
+		Enabled = true,
+		FileName = "1738 Hub"
+	}
+})
+
+-- MAIN TAB
+local MainTab = Window:CreateTab("Main","box")
+
+-- simple section helper (as requested)
+local function section(name)
+	return MainTab:CreateSection(name)
+end
+
+-- HITBOX
+section("Hitbox")
+
+local hv = 20
+local hitboxEnabled = false
+
+MainTab:CreateToggle({
+	Name = "Hitbox Toggle",
+	CurrentValue = false,
+	Flag = "hitboxtoggle",
+	Callback = function(v)
+		hitboxEnabled = v
+		if v then
+			_G.HeadSize = hv
+			loadstring(game:HttpGet("https://raw.githubusercontent.com/InfinityXD77/1738/main/s/hitbox/script.lua"))()
+		end
+	end
+})
+
+MainTab:CreateSlider({
+	Name = "Hitbox Value",
+	Range = {0,25},
+	Increment = 1,
+	CurrentValue = hv,
+	Flag = "hitboxvalue",
+	Callback = function(v)
+		hv = v
+		if hitboxEnabled then
+			_G.HeadSize = hv
+		end
+	end
+})
+
+-- BRAINROT NOTIFIER
+section("Brainrot Notifier")
+
+local folder = workspace:WaitForChild("ActiveBrainrots"):WaitForChild("Secret")
+local conn
+
+local function notify(txt)
+	pcall(function()
+		StarterGui:SetCore("SendNotification", {
+			Title = "Spawn Alert",
+			Text = txt,
+			Duration = 5
+		})
+	end)
+end
+
+local function checkName(name)
+	name = name:lower()
+	if name:find("67") then notify("Rainbow 67 spawned") end
+	if name:find("frago") then notify("Frago La La La spawned") end
+	if name:find("aura") then notify("Aura Farma spawned") end
+end
+
+MainTab:CreateToggle({
+	Name = "Notify if brainrot spawn",
+	CurrentValue = false,
+	Flag = "brainrotnotify",
+	Callback = function(v)
+		if conn then
+			conn:Disconnect()
+			conn = nil
+		end
+
+		if v then
+			for _, obj in ipairs(folder:GetChildren()) do
+				local m = obj:FindFirstChildWhichIsA("Model")
+				if m then checkName(m.Name) end
+			end
+
+			conn = folder.ChildAdded:Connect(function(obj)
+				local m = obj:FindFirstChildWhichIsA("Model") or obj:WaitForChild(obj.Name,2)
+				if m then checkName(m.Name) end
+			end)
+		end
+	end
+})
+
+-- GAPS TAB
+local GapsTab = Window:CreateTab("Gaps","navigation-2")
+
+local function section2(name)
+	return GapsTab:CreateSection(name)
+end
+
+section2("Tweening")
+
+GapsTab:CreateButton({
+	Name = "Variant 1",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/InfinityXD77/1738/main/s/tweengui/v1.lua"))()
+	end
+})
+
+GapsTab:CreateButton({
+	Name = "Variant 2",
+	Callback = function()
+		Rayfield:Notify({
+			Title = "In Progress...",
+			Content = "Releasing soon",
+			Duration = 6.5
+		})
+	end
+})
+
+Rayfield:Notify({
+	Title = "1738 Hub Loaded!!",
+	Content = "Enjoy....",
+	Duration = 6.5
+})
