@@ -1,0 +1,252 @@
+-- ts file was generated at discord.gg/25ms
+
+local _call3 = game:GetService('Players')
+local _LocalPlayer4 = _call3.LocalPlayer
+local _call6 = game:GetService('RunService')
+
+game:GetService('TweenService')
+Vector3.new(398, -2.8, 0)
+Vector3.new(542, -2.8, 0)
+Vector3.new(756.1, -2.8, 0)
+Vector3.new(1072.5, -2.8, 1.2)
+Vector3.new(1552.7, -2.8, 5.3)
+Vector3.new(2244.2, -2.8, -1.2)
+Vector3.new(2588.4, -2.8, 0.9)
+
+local _call33 = Instance.new('Frame', Instance.new('ScreenGui', game.CoreGui))
+
+_call33.Size = UDim2.new(0, 280, 0, 360)
+_call33.Position = UDim2.new(0.5, -140, 0.5, -180)
+_call33.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+_call33.BorderColor3 = Color3.fromRGB(0, 255, 255)
+_call33.Active = true
+
+Instance.new('UICorner', _call33)
+
+local _call45 = Instance.new('Frame', _call33)
+
+_call45.Size = UDim2.new(1, 0, 0, 45)
+_call45.BackgroundTransparency = 1
+_call45.Active = true
+_call45.ZIndex = 1
+
+local _call49 = Instance.new('TextLabel', _call33)
+
+_call49.Size = UDim2.new(1, -45, 0, 45)
+_call49.Position = UDim2.new(0, 10, 0, 0)
+_call49.BackgroundTransparency = 1
+_call49.Text = 'WAVE HUB'
+_call49.TextColor3 = Color3.fromRGB(0, 255, 255)
+_call49.TextSize = 20
+_call49.Font = Enum.Font.GothamBold
+_call49.TextXAlignment = Enum.TextXAlignment.Left
+_call49.ZIndex = 2
+
+local _call61 = Instance.new('TextButton', _call33)
+
+_call61.Size = UDim2.new(0, 30, 0, 30)
+_call61.Position = UDim2.new(1, -35, 0, 7.5)
+_call61.BackgroundTransparency = 1
+_call61.Text = '\u{2014}'
+_call61.TextColor3 = Color3.fromRGB(255, 80, 80)
+_call61.Font = Enum.Font.GothamBold
+_call61.TextSize = 22
+_call61.ZIndex = 3
+
+local _call71 = Instance.new('ScrollingFrame', _call33)
+
+_call71.Size = UDim2.new(1, 0, 1, -55)
+_call71.Position = UDim2.new(0, 0, 0, 50)
+_call71.CanvasSize = UDim2.new(0, 0, 0, 750)
+_call71.ScrollBarImageTransparency = 0.4
+_call71.BackgroundTransparency = 1
+
+_call45.InputBegan:Connect(function(_81, _81_2, _81_3)
+    local _ = _81.UserInputType == Enum.UserInputType.MouseButton1
+    local _ = _81.UserInputType == Enum.UserInputType.Touch
+end)
+game:GetService('UserInputService').InputChanged:Connect(function(_93) end)
+
+local _ = _call33.Size
+
+_call61.MouseButton1Click:Connect(function()
+    _call71.Visible = false
+    _call33.Size = UDim2.new(0, 280, 0, 45)
+    _call61.Text = '+'
+end)
+_call45.InputBegan:Connect(function(_104, _104_2, _104_3, _104_4, _104_5)
+    local _ = _104.UserInputType == Enum.UserInputType.MouseButton1
+end)
+
+local _call110 = Instance.new('TextButton', _call71)
+
+_call110.Size = UDim2.new(0.9, 0, 0, 45)
+_call110.Position = UDim2.new(0.05, 0, 0, 10)
+_call110.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+_call110.TextColor3 = Color3.fromRGB(0, 255, 255)
+_call110.TextSize = 18
+_call110.Text = 'GAP UP'
+
+Instance.new('UICorner', _call110)
+_call110.MouseButton1Click:Connect(function(_124, _124_2, _124_3, _124_4)
+    local _ = (_LocalPlayer4.Character:FindFirstChild('HumanoidRootPart').Position - Vector3.new(284, -2.8, 0)).Magnitude
+    local _ = TweenInfo.new
+
+    error('line 1: attempt to compare number < table')
+end)
+
+local _call133 = Instance.new('TextButton', _call71)
+
+_call133.Size = UDim2.new(0.9, 0, 0, 45)
+_call133.Position = UDim2.new(0.05, 0, 0, 62)
+_call133.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+_call133.TextColor3 = Color3.fromRGB(0, 255, 255)
+_call133.TextSize = 18
+_call133.Text = 'GAP DOWN'
+
+Instance.new('UICorner', _call133)
+_call133.MouseButton1Click:Connect(function(_147, _147_2, _147_3, _147_4)
+    local _ = (_LocalPlayer4.Character:FindFirstChild('HumanoidRootPart').Position - Vector3.new(200, -2.8, 0)).Magnitude
+    local _ = TweenInfo.new
+
+    error('line 1: attempt to compare number < table')
+end)
+
+local _call156 = Instance.new('TextButton', _call71)
+
+_call156.Size = UDim2.new(0.9, 0, 0, 45)
+_call156.Position = UDim2.new(0.05, 0, 0, 114)
+_call156.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+_call156.TextColor3 = Color3.fromRGB(0, 255, 255)
+_call156.TextSize = 18
+_call156.Text = 'Hitbox Expander: OFF'
+
+Instance.new('UICorner', _call156)
+_call156.MouseButton1Click:Connect(function(_170, _170_2, _170_3, _170_4)
+    _call156.Text = 'Hitbox Expander: ON'
+end)
+
+local _call172 = Instance.new('TextBox', _call71)
+
+_call172.Size = UDim2.new(0.9, 0, 0, 40)
+_call172.Position = UDim2.new(0.05, 0, 0, 166)
+_call172.Text = 'Hitbox Size: 15'
+_call172.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+_call172.TextColor3 = Color3.fromRGB(0, 255, 255)
+
+_call172.FocusLost:Connect(function()
+    _call172.Text:match('%d+')
+end)
+
+local _call189 = Instance.new('TextButton', _call71)
+
+_call189.Size = UDim2.new(0.9, 0, 0, 45)
+_call189.Position = UDim2.new(0.05, 0, 0, 216)
+_call189.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+_call189.TextColor3 = Color3.fromRGB(0, 255, 255)
+_call189.TextSize = 18
+_call189.Text = 'Auto Bat: OFF'
+
+Instance.new('UICorner', _call189)
+_call189.MouseButton1Click:Connect(function(_203, _203_2, _203_3, _203_4)
+    _call189.Text = 'Auto Bat: ON'
+end)
+
+local _call205 = Instance.new('TextButton', _call71)
+
+_call205.Size = UDim2.new(0.9, 0, 0, 45)
+_call205.Position = UDim2.new(0.05, 0, 0, 268)
+_call205.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+_call205.TextColor3 = Color3.fromRGB(0, 255, 255)
+_call205.TextSize = 18
+_call205.Text = 'Anti-Ragdoll: OFF'
+
+Instance.new('UICorner', _call205)
+_call205.MouseButton1Click:Connect(function(_219, _219_2, _219_3, _219_4)
+    _call205.Text = 'Anti-Ragdoll: ON'
+end)
+
+local _call221 = Instance.new('TextButton', _call71)
+
+_call221.Size = UDim2.new(0.9, 0, 0, 45)
+_call221.Position = UDim2.new(0.05, 0, 0, 320)
+_call221.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+_call221.TextColor3 = Color3.fromRGB(0, 255, 255)
+_call221.TextSize = 18
+_call221.Text = 'Player ESP: OFF'
+
+Instance.new('UICorner', _call221)
+_call221.MouseButton1Click:Connect(function(_235, _235_2, _235_3, _235_4)
+    _call221.Text = 'Player ESP: ON'
+end)
+
+local _call237 = Instance.new('TextButton', _call71)
+
+_call237.Size = UDim2.new(0.9, 0, 0, 45)
+_call237.Position = UDim2.new(0.05, 0, 0, 372)
+_call237.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+_call237.TextColor3 = Color3.fromRGB(0, 255, 255)
+_call237.TextSize = 18
+_call237.Text = 'Instant Take: OFF'
+
+Instance.new('UICorner', _call237)
+_call237.MouseButton1Click:Connect(function(_251, _251_2, _251_3, _251_4)
+    _call237.Text = 'Instant Take: ON'
+
+    _call6.Heartbeat:Connect(function(_255)
+        for _258, _258_2 in pairs(workspace:GetDescendants())do
+            _258_2:IsA('ProximityPrompt')
+
+            _258_2.HoldDuration = 0
+            _258_2.RequiresLineOfSight = false
+        end
+    end)
+end)
+
+local _call262 = Instance.new('TextButton', _call71)
+
+_call262.Size = UDim2.new(0.9, 0, 0, 45)
+_call262.Position = UDim2.new(0.05, 0, 0, 424)
+_call262.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+_call262.TextColor3 = Color3.fromRGB(0, 255, 255)
+_call262.TextSize = 18
+_call262.Text = 'Unlock Zoom'
+
+Instance.new('UICorner', _call262)
+_call262.MouseButton1Click:Connect(function(_276, _276_2, _276_3, _276_4)
+    _LocalPlayer4.CameraMaxZoomDistance = 10000
+end)
+_call6.RenderStepped:Connect(function(_280, _280_2, _280_3, _280_4, _280_5)
+    local _Character281 = _LocalPlayer4.Character
+    local _call283 = _Character281:FindFirstChildOfClass('Humanoid')
+
+    _Character281:FindFirstChild('HumanoidRootPart')
+    _call283:SetStateEnabled(Enum.HumanoidStateType.Ragdoll, false)
+    _call283:SetStateEnabled(Enum.HumanoidStateType.FallingDown, false)
+    _call283:SetStateEnabled(Enum.HumanoidStateType.PlatformStanding, false)
+
+    _call283.Sit = false
+    _call283.PlatformStand = false
+
+    for _300, _300_2 in ipairs(_call3:GetPlayers())do
+        local _ = _300_2 == _LocalPlayer4
+        local _ = _300_2.Character
+
+        _300_2.Character:FindFirstChild('HumanoidRootPart')
+
+        local _HumanoidRootPart307 = _300_2.Character.HumanoidRootPart
+
+        _300_2.Character:FindFirstChild('Head')
+
+        local _Character311 = _300_2.Character
+
+        _HumanoidRootPart307.Size = Vector3.new(15, 15, 15)
+        _HumanoidRootPart307.Transparency = 0.8
+        _HumanoidRootPart307.CanCollide = false
+
+        local _ = _Character311:FindFirstChildOfClass('Humanoid').Health
+
+        error('line 1: attempt to compare number < table')
+    end
+end)
+_LocalPlayer4.CharacterAdded:Connect(function(_320) end)
